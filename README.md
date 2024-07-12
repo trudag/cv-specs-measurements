@@ -31,7 +31,7 @@ The Model_deployment part of the project is containerised within two Docker imag
 # Installation
 
 ## Prerequisites
-Python 3.9&nbsp;
+Python 3.9
 Docker
 
 ## Clone the repository
@@ -55,7 +55,8 @@ Instal the appropriate version of Docker. Within CMD navigate to the project fol
    ```bash
    docker-compose up
    ```
-
+   
+&nbsp;
 # Usage
 
 ## Data Augmentation
@@ -105,6 +106,8 @@ The Model Training module is designed to train a YOLO model using the provided c
 
 ## Model Deployment
 ### Picture Analysis
+The model looks for two different types of markers (round and square) within a picture and localises them.
+
 To identify markers on images (only .png and .jpg are allowed):
 1. Navigate to the `Model_deployment/Task1_Picture_analysis` directory.
 2. Run the `picture_main.py` script with the appropriate arguments.
@@ -122,7 +125,7 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 
 ### Video Analysis
-The algorithms uses the CNN to identify round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' is mean that the angles in corner are as close to 90 degrees as possible.
+The algorithms uses the CNN to identify four round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' is mean that the angles in corner are as close to 90 degrees as possible.
 
 To analyse videos:
 1. Navigate to the `Model_deployment/Task2_Frame_identification` directory.
