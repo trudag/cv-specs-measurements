@@ -1,4 +1,4 @@
-CV-Specs-Measurement
+![image](https://github.com/user-attachments/assets/bb57db2e-9754-45d8-837e-913a288f9f9f)CV-Specs-Measurement
 ## Overview
 The `CV-Specs-Measurement` is an example of the application of convolutional neural networks to the localisation of custom fiducial markers. The project heavily relies on YOLOv8. This project is structured into several modules, including data augmentation, model training, and deployment for both picture and video analysis.
 
@@ -58,6 +58,16 @@ Instal the appropriate version of Docker. Within CMD navigate to the project fol
 ## Data Augmentation
 The Data Augmentation module is designed to generate synthetic training and holdout datasets by applying various transformations to the input images and markers. This helps create a model invariant for different types of noise.
 
+### Sample data
+You can find sample pictures of faces used for training in the Sample_data folder. During the training almost 2k unique pictures were used.
+```bash
+cd Data_augmentation/Sample_data
+```
+The examples of augmented data can be found within the Models folder.
+```bash
+cd Model_deployment/Models/Two_classes_e100_r512_b16/Training_localisation_examples
+```
+
 ### Example Usage
 
 1. **Set the Configuration Parameters**
@@ -74,6 +84,7 @@ The Data Augmentation module is designed to generate synthetic training and hold
 
 ## Model Training
 The Model Training module is designed to train a YOLO model using the provided configuration and dataset.
+
 
 ### Example Usage
 
@@ -128,5 +139,9 @@ For video analysis:
 ```bash
 docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test:/app/Test cv-specs-measurement-video-analysis --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt --input_video /app/Test/video.mp4 --output_video /app/Test/Output/output_video_with_detections.avi --output_json /app/Test/Output/output_results.json --process_video --show_video
 ```
-
+#### Performance metrics
+The trained model has pretty decent descrimination performance. You can examine the metrics within the Models folder.   
+```bash
+cd Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics
+```
 
