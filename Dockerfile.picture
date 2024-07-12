@@ -1,0 +1,32 @@
+# Dockerfile.picture
+
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    curl \
+    build-essential && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Rust and Cargo
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+# Ensure Cargo is in the PATH
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Use ENTRYPOINT to allow passing arguments to the script
+ENTRYPOINT ["python", "Model_deployment/Task1_Picture_analysis/picture_main.py"]

@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  picture-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile.picture
+    environment:
+      - MODEL_PATH=/app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt
+      - INPUT_DIR=/app/Model_deployment/Task1_Picture_analysis/Test_data/
+      - OUTPUT_DIR=/app/Model_deployment/Task1_Picture_analysis/Test_data/Output/
+    volumes:
+      - ./Model_deployment/Models:/app/Model_deployment/Models
+      - ./Test
+      - ./Model_deployment/Task1_Picture_analysis/Test_data:/app/Model_deployment/Task1_Picture_analysis/Test_data
+    command: >
+      python /app/Model_deployment/Task1_Picture_analysis/picture_main.py
+      --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt
+      --input_dir /app/Model_deployment/Task1_Picture_analysis/Test_data/
+      --output_dir /app/Model_deployment/Task1_Picture_analysis/Test_data/Output/
+
+  video-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile.video
+    environment:
+      - MODEL_PATH=/app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt
+      - INPUT_VIDEO_PATH=/app/Model_deployment/Task2_Frame_identification/Test_data/video.mp4
+      - OUTPUT_VIDEO_PATH=/app/Model_deployment/Task2_Frame_identification/Test_data/Output/output_video_with_detections.avi
+      - OUTPUT_JSON_PATH=/app/Model_deployment/Task2_Frame_identification/Test_data/Output/output_results.json
+    volumes:
+      - ./Model_deployment/Models:/app/Model_deployment/Models
+      - ./Test
+      - ./Model_deployment/Task2_Frame_identification/Test_data:/app/Model_deployment/Task2_Frame_identification/Test_data
+    command: >
+      python /app/Model_deployment/Task2_Frame_identification/video_main.py
+      --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt
+      --input_video /app/Model_deployment/Task2_Frame_identification/Test_data/video.mp4
+      --output_video /app/Model_deployment/Task2_Frame_identification/Test_data/Output/output_video_with_detections.avi
+      --output_json /app/Model_deployment/Task2_Frame_identification/Test_data/Output/output_results.json
+      --process_video --show_video

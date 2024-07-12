@@ -1,0 +1,6 @@
+
+    train: 'C:\Users\Denis\Desktop\cv-specs-measurement\Model_training\Sample_development_data\datasets\training_data'
+    val: 'C:\Users\Denis\Desktop\cv-specs-measurement\Model_training\Sample_development_data\datasets\holdout_data'
+    nc: 2
+    names: [0, 1]
+    
