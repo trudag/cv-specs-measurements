@@ -8,40 +8,39 @@ The `CV-Specs-Measurement` is an example of the application of convolutional neu
 3. [Usage](#usage)
    - [Data Augmentation](#data-augmentation)
    - [Model Training](#model-training)
-   - [Picture Analysis](#picture-analysis)
-   - [Video Analysis](#video-analysis)
-4. [Docker](#docker)
-5. [Contributing](#contributing)
-6. [License](#license)
+   - [Model Deployment](#model-deployment)
+      - [Picture Analysis](#picture-analysis)
+      - [Video Analysis](#video-analysis)
 
-## General structure
+# General structure
 ```
 cv-specs-measurements
-├─ Data_augmentation (contains algorithm and sample supporting data for the data augmentation algorithm that creates training data)
-├─ Model_training (contains the CNN algorithms that train using the augmented data)
-├─ Model_deployment (contains the algorithms that use the trained model for fiducial marker identification)
+├─ Data_augmentation (data augmentation algorithm that creates training data)
+├─ Model_training (training CNN on the augmented data)
+├─ Model_deployment (trained model for fiducial marker identification)
+│  ├─ Models (weights of CNN)
 │  ├─ Task1_Picture_analysis (first part of the technical assessment)
 │  └─ Task2_Frame_identification (second part of the technical assessment)
-└─ Test (contains the video for testing and validation)
+└─ Test (video for testing and validation)
 ```
-The Model_deployment part of the project is containerised within two Docker images: one with the algorithm for identification of markers on the photo, and one for identification of the neutral face pose on a video using markers.
+The Model_deployment part of the project is containerised within two Docker images: one with the algorithm for the identification of markers on the photo, and one for the identification of the neutral face pose in a video using markers. The main scripts also run several automatic unit tests using native Python functionality to ensure the integrity of the used functions. The code throughout also includes basic data validation functionality.
 
-## Installation
+# Installation
 
-### Prerequisites
+## Prerequisites
 Python 3.9
 Docker
 
-### Clone the repository
-git clone https://github.com/yourusername/cv-specs-measurement.git
-cd cv-specs-measurement
+## Clone the repository
+git clone https://github.com/trudag/cv-specs-measurements.git
+cd cv-specs-measurements
 
-### Install Dependencies
+## Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Build and Run Docker Containers
+## Build and Run Docker Containers
 Instal the appropriate version of Docker. Within CMD navigate to the project folder and execute (on Windows):
 1. Build the Docker images:
    ```bash
@@ -99,19 +98,6 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 
 
-
-
-## Table of Contents
-1. [Project Structure](#project-structure)
-2. [Installation](#installation)
-3. [Usage](#usage)
-   - [Data Augmentation](#data-augmentation)
-   - [Model Training](#model-training)
-   - [Picture Analysis](#picture-analysis)
-   - [Video Analysis](#video-analysis)
-4. [Docker](#docker)
-5. [Contributing](#contributing)
-6. [License](#license)
 
 
 
