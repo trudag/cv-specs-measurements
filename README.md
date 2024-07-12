@@ -147,7 +147,7 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 #### Performance metrics
 The trained model has pretty decent descrimination performance.
-![Performance Metrics](cv-specs-measurements/Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics/results.png)
+![Performance Metrics](/Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics/results.png)
 
 You can examine more metrics within the Models folder.   
 ```bash
