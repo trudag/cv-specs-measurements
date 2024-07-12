@@ -54,10 +54,80 @@ Instal the appropriate version of Docker. Within CMD navigate to the project fol
 # Usage
 
 ## Data Augmentation
-Navigate to the `Data_augmentation` directory and run the `augmentation_main.py` script to generate augmented data.
+The Data Augmentation module is designed to generate synthetic training and holdout datasets by applying various transformations to the input images and markers. This helps create a model invariant for different types of noise.
+
+### Description of the Data Augmentation Process
+
+The `augmentation_main.py` script performs the following steps:
+
+1. **Import Necessary Libraries and Functions**
+   - Imports functions and libraries required for data augmentation, including OpenCV and the custom utility functions from `Supporting_code_aug.augutilities`.
+
+2. **Set Constants and Configuration Parameters**
+   - Specifies paths to the input/output folders, the number of images to generate, and various pre-processing options.
+
+3. **Perform Unit Tests**
+   - Runs unit tests on the pipeline functions to ensure they work correctly.
+
+4. **Load Marker Images**
+   - Loads the round and square marker images from the specified directories.
+
+5. **Generate Training and Holdout Datasets**
+   - Calls the `create_dataset_from_images` function to generate augmented datasets for training and holdout purposes.
+
+### Example Usage
+
+1. **Set the Configuration Parameters**
+
+   Edit the constants in the `augmentation_main.py` script to specify the desired paths and configuration options.
+
+2. **Run the Data Augmentation Pipeline**
+
+   Execute the script to generate the augmented datasets:
+   ```bash
+   python augmentation_main.py
+   ```
+
 
 ## Model Training
-Navigate to the `Model_training` directory and run the `training_main.py` script to start training the model using the provided `yolov8s.yaml` configuration file.
+The Model Training module is designed to train a YOLO model using the provided configuration and dataset.
+
+### Description of the Model Training Process
+
+The `training_main.py` script performs the following steps:
+
+1. **Import Necessary Libraries and Functions**
+   - Imports functions and libraries required for model training, including PyTorch and the custom utility functions from `Supporting_code_train.trainutilities`.
+
+2. **Set Constants and Configuration Parameters**
+   - Specifies paths to the input/output folders, the number of training epochs, image size, batch size, and other training parameters.
+
+3. **Create the Model Specification YAML File**
+   - Generates a YAML file specifying the training and validation datasets, number of classes, and class names.
+
+4. **Check for CUDA Availability**
+   - Checks if a CUDA-enabled GPU is available for faster training If not, will proceed using CPU.
+
+5. **Load the Model Configuration**
+   - Loads the YOLO model configuration or pre-trained weights.
+
+6. **Train the Model**
+   - Initiates the training process with the specified parameters and saves the trained model and training results.
+   - 
+### Example Usage
+
+1. **Set the Configuration Parameters**
+
+   Edit the constants in the `training_main.py` script to specify the desired paths and configuration options.
+
+2. **Run the Training Script**
+
+   Execute the script to start training the model:
+   ```bash
+   python training_main.py
+   ```
+
+
 
 ## Model Deployment
 ### Picture Analysis
@@ -78,7 +148,9 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 
 ### Video Analysis
-To analyze videos:
+The algorithms uses the CNN to identify round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' is mean that the angles in corner are as close to 90 degrees as possible.
+
+To analyse videos:
 1. Navigate to the `Model_deployment/Task2_Frame_identification` directory.
 2. Run the `video_main.py` script with the appropriate arguments.
 
@@ -98,9 +170,3 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 
 
-
-
-
----
-
-Feel free to replace `https://github.com/trudag/cv-specs-measurements.git` with the actual URL of your GitHub repository. This README covers the project structure, installation, usage, Docker integration, and contribution guidelines.
