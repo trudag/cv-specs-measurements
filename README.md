@@ -124,7 +124,7 @@ docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test
 ```
 &nbsp;
 ### Video Analysis
-The algorithms uses the CNN to identify four round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' is mean that the angles in corner are as close to 90 degrees as possible.
+The algorithms uses the CNN to identify four round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' I mean that the angles of the quadrilateral are as close to 90 degrees as possible.
 
 To analyse videos:
 1. Navigate to the `Model_deployment/Task2_Frame_identification` directory.
