@@ -146,7 +146,10 @@ For video analysis:
 docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test:/app/Test cv-specs-measurement-video-analysis --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt --input_video /app/Test/video.mp4 --output_video /app/Test/Output/output_video_with_detections.avi --output_json /app/Test/Output/output_results.json --process_video --show_video
 ```
 #### Performance metrics
-The trained model has pretty decent descrimination performance. You can examine the metrics within the Models folder.   
+The trained model has pretty decent descrimination performance.
+![Performance Metrics](cv-specs-measurements/Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics/results.png)
+
+You can examine more metrics within the Models folder.   
 ```bash
 cd Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics
 ```
