@@ -11,6 +11,7 @@ The `CV-Specs-Measurement` is an example of the application of convolutional neu
    - [Model Deployment](#model-deployment)
       - [Picture Analysis](#picture-analysis)
       - [Video Analysis](#video-analysis)
+      - [Performance Metrics](#performance-metrics)
 
 # General structure
 ```
