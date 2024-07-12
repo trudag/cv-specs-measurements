@@ -26,10 +26,12 @@ cv-specs-measurements
 ```
 The Model_deployment part of the project is containerised within two Docker images: one with the algorithm for the identification of markers on the photo, and one for the identification of the neutral face pose in a video using markers. The main scripts also run several automatic unit tests using native Python functionality to ensure the integrity of the used functions. The code throughout also includes basic data validation functionality.
 
+&nbsp;
+
 # Installation
 
 ## Prerequisites
-Python 3.9
+Python 3.9&nbsp;
 Docker
 
 ## Clone the repository
