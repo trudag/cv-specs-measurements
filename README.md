@@ -1,6 +1,36 @@
+CV-Specs-Measurement
+## Overview
+The CV-Specs-Measurement project aims to enhance image and video processing capabilities using advanced machine learning models, specifically YOLOv8 for object detection. This project is structured into several modules, including data augmentation, model training, and deployment for both picture and video analysis.
 
+Table of Contents
+Project Structure
+Installation
+Usage
+Data Augmentation
+Model Training
+Picture Analysis
+Video Analysis
+Docker
+Contributing
+License
+
+# Installation
+
+## Prerequisites
+Python 3.9
+Docker
+
+## Clone the repository
+git clone https://github.com/yourusername/cv-specs-measurement.git
+cd cv-specs-measurement
+
+## Install Dependencies
+
+
+
+## Project structure
 ```
-cv-specs-measurement
+cv-specs-measurements
 ├─ Data_augmentation
 │  ├─ augmentation_main.py
 │  ├─ Example_markers
