@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/bb57db2e-9754-45d8-837e-913a288f9f9f)CV-Specs-Measurement
 ## Overview
 The `CV-Specs-Measurement` is an example of the application of convolutional neural networks to the localisation of custom fiducial markers. The project heavily relies on YOLOv8. This project is structured into several modules, including data augmentation, model training, and deployment for both picture and video analysis.
 
