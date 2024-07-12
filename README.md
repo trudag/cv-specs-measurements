@@ -85,7 +85,7 @@ cd Model_deployment/Models/Two_classes_e100_r512_b16/Training_localisation_examp
    python augmentation_main.py
    ```
 
-
+&nbsp;
 ## Model Training
 The Model Training module is designed to train a YOLO model using the provided configuration and dataset.
 
@@ -103,7 +103,7 @@ The Model Training module is designed to train a YOLO model using the provided c
    python training_main.py
    ```
 
-
+&nbsp;
 ## Model Deployment
 ### Picture Analysis
 The model looks for two different types of markers (round and square) within a picture and localises them.
@@ -123,7 +123,7 @@ For picture analysis:
 ```bash
 docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test:/app/Test cv-specs-measurement-picture-analysis --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt --input_dir /app/Test/ --output_dir /app/Test/Output/
 ```
-
+&nbsp;
 ### Video Analysis
 The algorithms uses the CNN to identify four round markers on the measurement frame and to determine the frame with the 'most rectangle' marker positions. By 'most rectagle' is mean that the angles in corner are as close to 90 degrees as possible.
 
@@ -145,6 +145,7 @@ For video analysis:
 ```bash
 docker run --rm -v /path/to/models:/app/Model_deployment/Models -v /path/to/test:/app/Test cv-specs-measurement-video-analysis --model /app/Model_deployment/Models/Two_classes_e100_r512_b16/Weights/best.pt --input_video /app/Test/video.mp4 --output_video /app/Test/Output/output_video_with_detections.avi --output_json /app/Test/Output/output_results.json --process_video --show_video
 ```
+&nbsp;
 #### Performance metrics
 The trained model has pretty decent descrimination performance.
 ![Performance Metrics](/Model_deployment/Models/Two_classes_e100_r512_b16/Performance_metrics/results.png)
