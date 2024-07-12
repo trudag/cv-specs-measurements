@@ -32,8 +32,10 @@ Python 3.9
 Docker
 
 ## Clone the repository
+```bash
 git clone https://github.com/trudag/cv-specs-measurements.git
 cd cv-specs-measurements
+```
 
 ## Install Dependencies
 ```bash
@@ -56,25 +58,6 @@ Instal the appropriate version of Docker. Within CMD navigate to the project fol
 ## Data Augmentation
 The Data Augmentation module is designed to generate synthetic training and holdout datasets by applying various transformations to the input images and markers. This helps create a model invariant for different types of noise.
 
-### Description of the Data Augmentation Process
-
-The `augmentation_main.py` script performs the following steps:
-
-1. **Import Necessary Libraries and Functions**
-   - Imports functions and libraries required for data augmentation, including OpenCV and the custom utility functions from `Supporting_code_aug.augutilities`.
-
-2. **Set Constants and Configuration Parameters**
-   - Specifies paths to the input/output folders, the number of images to generate, and various pre-processing options.
-
-3. **Perform Unit Tests**
-   - Runs unit tests on the pipeline functions to ensure they work correctly.
-
-4. **Load Marker Images**
-   - Loads the round and square marker images from the specified directories.
-
-5. **Generate Training and Holdout Datasets**
-   - Calls the `create_dataset_from_images` function to generate augmented datasets for training and holdout purposes.
-
 ### Example Usage
 
 1. **Set the Configuration Parameters**
@@ -92,28 +75,6 @@ The `augmentation_main.py` script performs the following steps:
 ## Model Training
 The Model Training module is designed to train a YOLO model using the provided configuration and dataset.
 
-### Description of the Model Training Process
-
-The `training_main.py` script performs the following steps:
-
-1. **Import Necessary Libraries and Functions**
-   - Imports functions and libraries required for model training, including PyTorch and the custom utility functions from `Supporting_code_train.trainutilities`.
-
-2. **Set Constants and Configuration Parameters**
-   - Specifies paths to the input/output folders, the number of training epochs, image size, batch size, and other training parameters.
-
-3. **Create the Model Specification YAML File**
-   - Generates a YAML file specifying the training and validation datasets, number of classes, and class names.
-
-4. **Check for CUDA Availability**
-   - Checks if a CUDA-enabled GPU is available for faster training If not, will proceed using CPU.
-
-5. **Load the Model Configuration**
-   - Loads the YOLO model configuration or pre-trained weights.
-
-6. **Train the Model**
-   - Initiates the training process with the specified parameters and saves the trained model and training results.
-   - 
 ### Example Usage
 
 1. **Set the Configuration Parameters**
@@ -126,7 +87,6 @@ The `training_main.py` script performs the following steps:
    ```bash
    python training_main.py
    ```
-
 
 
 ## Model Deployment
